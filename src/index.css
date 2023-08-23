@@ -42,7 +42,7 @@
 
 .Editnote form textarea {
   position: relative;
-  padding: 1rem 0 0 20px;
+  padding: 1rem 0 0 10px;
   font-size: 1rem;
   border: none;
   outline: none;
@@ -67,22 +67,36 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 12rem;
+  padding: 5px;
+  width: 20rem;
   height: 8rem;
-  padding: 10px;
   border-radius: 10px;
   border: none;
   box-shadow: 2px 2px 5px gray;
   position: relative;
+  margin: 15px 20px 0 0;
+}
+.input-filds {
+  position: relative;
+}
+.card-text-area {
+  overflow: scroll;
+  width: 100%;
+  padding: 5px 15% 10px 5px;
+  margin: auto;
+  height: 5.8rem;
+  position: absolute;
 }
 .dlt-btn {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  color: red;
-  border: 2px solid rgb(248, 133, 133);
-  padding: 5px;
+  bottom: 15px;
+  right: 16px;
+  z-index: 99;
+  margin-left: auto;
+  color: white;
+  background-color: red;
+  padding: 5px 10px;
   border-radius: 5px;
-  background: transparent;
+  border: none;
+  /* background: transparent */
 }
