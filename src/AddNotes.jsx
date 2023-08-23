@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import { v4 as uuidv4 } from "uuid";
 import { addNotes } from "./redux/actions";
 import { useDispatch } from "react-redux";
 
@@ -10,7 +9,6 @@ const AddNotes = () => {
   const [note, setNote] = useState({
     title: "",
     textArea: "",
-    id: uuidv4(),
   });
 
   const addNote = (event) => {
@@ -44,6 +42,10 @@ const AddNotes = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
+            setNote({
+              title: "",
+              textArea: "",
+            });
             dispatch(addNotes(note));
           }}
         >
