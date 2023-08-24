@@ -69,6 +69,7 @@
   /* align-items: center; */
   overflow-y: scroll;
 }
+
 .card-text {
   border: 1px solid black;
   display: flex;
@@ -82,16 +83,20 @@
   position: relative;
   margin: 15px 20px 0 0;
 }
+.card-title {
+  text-transform: capitalize;
+}
 .input-filds {
   position: relative;
 }
 .card-text-area {
-  overflow: scroll;
+  overflow-y: scroll;
   width: 100%;
   padding: 5px 23% 10px 5px;
   margin: auto;
   height: 5.8rem;
   position: absolute;
+  text-transform: capitalize;
 }
 .dlt-btn {
   position: absolute;
