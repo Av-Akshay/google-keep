@@ -16,6 +16,8 @@
   display: flex;
   align-items: center;
   font-weight: 900;
+  width: 96%;
+  margin: auto;
 }
 .Editnote {
   display: flex;
@@ -117,4 +119,9 @@
   border: none;
   color: white;
   background-color: purple;
+}
+@media (max-width: 700px) {
+  .Editnote form {
+    width: 60%;
+  }
 }
