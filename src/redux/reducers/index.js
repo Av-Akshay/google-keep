@@ -10,10 +10,15 @@ const initialState = {
 const addTheNote = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_NOTE":
-      return {
-        ...state,
-        notes: [...state.notes, { ...action.payload, id: uuidv4() }],
-      };
+      if (action.payload.title === "" || action.payload.textArea === "") {
+        alert("Please filled the input filds");
+      } else {
+        return {
+          ...state,
+          notes: [...state.notes, { ...action.payload, id: uuidv4() }],
+        };
+      }
+
     case "DELETE_NOTE":
       return {
         ...state,
