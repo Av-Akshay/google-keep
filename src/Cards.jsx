@@ -1,9 +1,9 @@
-import React from "react";
-import { AiFillDelete } from "react-icons/ai";
+import React, { useState } from "react";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteNote } from "./redux/actions";
+import { deleteNote, editNoteId, editNoteData } from "./redux/actions";
 
-const Cards = () => {
+const Cards = (props) => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.addTheNote);
 
@@ -16,14 +16,29 @@ const Cards = () => {
               <h2 className="card-title">{curElem.title}</h2>
               <p className="card-text-area">{curElem.textArea}</p>
             </div>
-            <button
-              className="dlt-btn"
-              onClick={() => {
-                dispatch(deleteNote(curElem.id));
-              }}
-            >
-              <AiFillDelete />
-            </button>
+            <div className="btn-icons">
+              <button
+                className="dlt-btn"
+                onClick={() => {
+                  dispatch(deleteNote(curElem.id));
+                }}
+              >
+                <AiFillDelete />
+              </button>
+              <button className="edit-icon">
+                <AiFillEdit
+                  onClick={() => {
+                    dispatch(editNoteId(curElem.id));
+                    dispatch(
+                      editNoteData({
+                        title: curElem.title,
+                        textArea: curElem.textArea,
+                      })
+                    );
+                  }}
+                />
+              </button>
+            </div>
           </div>
         );
       })}

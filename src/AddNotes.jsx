@@ -1,15 +1,22 @@
-import React, { useState } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
-import { addNotes } from "./redux/actions";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { AiOutlinePlus, AiFillEdit } from "react-icons/ai";
+import { addNotes, addEditDatat } from "./redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-const AddNotes = () => {
+const AddNotes = (props) => {
   const dispatch = useDispatch();
+
+  const store = useSelector((store) => store.addTheNote);
 
   const [note, setNote] = useState({
     title: "",
     textArea: "",
   });
+  useEffect(() => {
+    if (store.btn === false) {
+      setNote(store.editData);
+    }
+  }, [store]);
 
   const addNote = (event) => {
     const { name, value } = event.target;
@@ -39,18 +46,33 @@ const AddNotes = () => {
           onChange={addNote}
           placeholder="Write a note.."
         ></textarea>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setNote({
-              title: "",
-              textArea: "",
-            });
-            dispatch(addNotes(note));
-          }}
-        >
-          <AiOutlinePlus />
-        </button>
+        {store?.btn ? (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setNote({
+                title: "",
+                textArea: "",
+              });
+              dispatch(addNotes(note));
+            }}
+          >
+            <AiOutlinePlus />
+          </button>
+        ) : (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(addEditDatat(note));
+              setNote({
+                title: "",
+                textArea: "",
+              });
+            }}
+          >
+            <AiFillEdit />
+          </button>
+        )}
       </form>
     </div>
   );
