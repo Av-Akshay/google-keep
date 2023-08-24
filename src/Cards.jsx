@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteNote, editNoteId, editNoteData } from "./redux/actions";

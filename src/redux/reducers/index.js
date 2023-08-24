@@ -18,7 +18,7 @@ const addTheNote = (state = initialState, action) => {
           notes: [...state.notes, { ...action.payload, id: uuidv4() }],
         };
       }
-
+      break;
     case "DELETE_NOTE":
       return {
         ...state,
