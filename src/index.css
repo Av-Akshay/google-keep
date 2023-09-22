@@ -120,8 +120,18 @@
   color: white;
   background-color: purple;
 }
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
+  .Editnote form {
+    width: 50%;
+  }
+}
+@media (max-width: 800px) {
   .Editnote form {
     width: 60%;
+  }
+}
+@media (max-width: 600px) {
+  .Editnote form {
+    width: 70%;
   }
 }
